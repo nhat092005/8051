@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\CT_CHOP_TAT" 
+PRINT(".\Listings\CT_CHOP_TAT.m51") RAMSIZE(256) 

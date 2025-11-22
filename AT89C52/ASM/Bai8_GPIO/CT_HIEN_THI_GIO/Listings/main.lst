@@ -1,0 +1,116 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 11/10/2025 19:23:13 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\main.obj
+ASSEMBLER INVOKED BY: C:\Users\minhn\AppData\Local\Keil_v5\C51\BIN\A51.EXE main.asc SET(SMALL) DEBUG PRINT(.\Listings\ma
+                      in.lst) OBJECT(.\Objects\main.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0080                 1     SEGMENT_PORT EQU P0
+  00A0                 2     SELECT_PORT EQU P2
+  0030                 3     LED7SEG DATA 30H
+                       4     
+0000                   5     ORG 0000H
+0000 802E              6             JMP MAIN
+                       7     
+0030                   8     ORG 0030H
+0030                   9             MAIN:
+0030 753000           10             MOV LED7SEG, #0
+                      11     
+0033                  12     LOOP:
+0033 E530             13             MOV A, LED7SEG
+0035 23               14             RL A
+0036 23               15             RL A
+0037 F5A0             16             MOV SELECT_PORT, A
+                      17     
+0039 E530             18             MOV A, LED7SEG
+003B 5403             19             ANL A, #03H
+                      20     
+003D 6012             21             JZ DISPLAY_9_1
+003F B40104           22             CJNE A, #01H, CHECK_LED2
+0042 7400             23             MOV A, #0
+0044 800D             24             JMP SHOW_DIGIT
+0046                  25     CHECK_LED2:
+0046 B40204           26             CJNE A, #02H, CHECK_LED3
+0049 7409             27             MOV A, #9
+004B 8006             28             JMP SHOW_DIGIT
+004D                  29     CHECK_LED3:
+004D 7401             30             MOV A, #1
+004F 8002             31             JMP SHOW_DIGIT
+                      32     
+0051                  33     DISPLAY_9_1:
+0051 7409             34             MOV A, #9
+                      35     
+0053                  36     SHOW_DIGIT:
+0053 90006E           37             MOV DPTR, #DIGIT_PATTERNS
+0056 93               38             MOVC A, @A+DPTR
+0057 F580             39             MOV SEGMENT_PORT, A
+                      40     
+0059                  41     CONTINUE:
+0059 1165             42             CALL DELAY_2MS
+                      43     
+005B 0530             44             INC LED7SEG
+005D E530             45             MOV A, LED7SEG
+005F 5403             46             ANL A, #03H
+0061 F530             47             MOV LED7SEG, A
+                      48     
+0063 80CE             49             JMP LOOP
+                      50     
+0065                  51     DELAY_2MS:
+0065 7AE8             52             MOV R2, #1000
+*** __________________________________________^
+*** WARNING #A52 IN 52 (main.asc, LINE 52): VALUE HAS BEEN TRUNCATED TO 8 BITS
+0067                  53     D2_OUTER:
+0067 79FA             54             MOV R1, #250
+0069                  55     D2_INNER:
+A51 MACRO ASSEMBLER  MAIN                                                                 11/10/2025 19:23:13 PAGE     2
+
+0069 D9FE             56             DJNZ R1, D2_INNER
+006B DAFA             57             DJNZ R2, D2_OUTER
+006D 22               58             RET
+                      59     
+006E                  60     DIGIT_PATTERNS:
+006E 3F               61             DB 03FH
+006F 06               62             DB 006H
+0070 5B               63             DB 05BH
+0071 4F               64             DB 04FH
+0072 66               65             DB 066H
+0073 6D               66             DB 06DH
+0074 7D               67             DB 07DH
+0075 07               68             DB 007H
+0076 7F               69             DB 07FH
+0077 6F               70             DB 06FH
+                      71     
+                      72     END
+A51 MACRO ASSEMBLER  MAIN                                                                 11/10/2025 19:23:13 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CHECK_LED2 . . . .  C ADDR   0046H   A   
+CHECK_LED3 . . . .  C ADDR   004DH   A   
+CONTINUE . . . . .  C ADDR   0059H   A   
+D2_INNER . . . . .  C ADDR   0069H   A   
+D2_OUTER . . . . .  C ADDR   0067H   A   
+DELAY_2MS. . . . .  C ADDR   0065H   A   
+DIGIT_PATTERNS . .  C ADDR   006EH   A   
+DISPLAY_9_1. . . .  C ADDR   0051H   A   
+LED7SEG. . . . . .  D ADDR   0030H   A   
+LOOP . . . . . . .  C ADDR   0033H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+SEGMENT_PORT . . .  D ADDR   0080H   A   
+SELECT_PORT. . . .  D ADDR   00A0H   A   
+SHOW_DIGIT . . . .  C ADDR   0053H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

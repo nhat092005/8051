@@ -1,0 +1,59 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    11/10/2025  14:14:09  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\USERS\MINHN\APPDATA\LOCAL\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\CT_DICH PRINT (.\Listings\CT_DICH.
+>> m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+
+
+LINK MAP OF MODULE:  .\Objects\CT_DICH (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0015H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\CT_DICH (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        BEGIN_ENTRY
+  C:0009H         SYMBOL        DELAY200MS
+  C:000DH         SYMBOL        LAP1
+  C:000BH         SYMBOL        LAP2
+  C:0002H         SYMBOL        LOOP
+  D:00A0H         SYMBOL        P2
+  C:0000H         LINE#         4
+  C:0002H         LINE#         7
+  C:0004H         LINE#         8
+  C:0005H         LINE#         9
+  C:0007H         LINE#         10
+  C:0009H         LINE#         13
+  C:000BH         LINE#         15
+  C:000DH         LINE#         17
+  C:000EH         LINE#         18
+  C:000FH         LINE#         19
+  C:0010H         LINE#         20
+  C:0012H         LINE#         21
+  C:0014H         LINE#         22
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0015H BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=21
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

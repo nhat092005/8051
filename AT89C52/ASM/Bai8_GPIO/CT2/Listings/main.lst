@@ -1,0 +1,48 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 11/10/2025 13:37:16 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\main.obj
+ASSEMBLER INVOKED BY: C:\Users\minhn\AppData\Local\Keil_v5\C51\BIN\A51.EXE main.asc SET(SMALL) DEBUG PRINT(.\Listings\ma
+                      in.lst) OBJECT(.\Objects\main.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+                       2     
+0000                   3     START:
+0000 D2A0              4             SETB P2.0       ;OFF LED 
+0002 D2B0              5             SETB P3.0 ;BUTTON ON
+0004 D2B1              6             SETB P3.1 ;BUTTON OFF
+                       7             
+0006                   8     MAIN_LOOP:
+                       9             ; CHECK BUTTON
+0006 20B004           10             JB P3.0, CHECK_OFF
+0009 C2A0             11             CLR P2.0
+000B 80F9             12             SJMP MAIN_LOOP
+                      13             
+000D                  14     CHECK_OFF:
+000D 20B1F6           15             JB P3.1, MAIN_LOOP
+0010 D2A0             16             SETB P2.0
+0012 80F2             17             SJMP MAIN_LOOP
+                      18             
+                      19     END
+A51 MACRO ASSEMBLER  MAIN                                                                 11/10/2025 13:37:16 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CHECK_OFF. . . . .  C ADDR   000DH   A   
+MAIN_LOOP. . . . .  C ADDR   0006H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+START. . . . . . .  C ADDR   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

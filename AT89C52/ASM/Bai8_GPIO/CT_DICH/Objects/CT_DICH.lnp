@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\CT_DICH" 
+PRINT(".\Listings\CT_DICH.m51") RAMSIZE(256) 

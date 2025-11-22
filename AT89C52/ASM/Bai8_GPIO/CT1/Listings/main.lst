@@ -1,0 +1,66 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 11/08/2025 16:52:15 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\main.obj
+ASSEMBLER INVOKED BY: C:\Users\minhn\AppData\Local\Keil_v5\C51\BIN\A51.EXE main.asm SET(SMALL) DEBUG PRINT(.\Listings\ma
+                      in.lst) OBJECT(.\Objects\main.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+                       2     
+0000                   3     BEGIN_ENTRY:
+                       4             
+0000 D2A3              5             SETB P2.3
+                       6             
+0002                   7     MAIN_LOOP:
+0002 B2A3              8             CPL P2.3
+0004 1108              9             CALL DELAY1S
+0006 80FA             10             JMP MAIN_LOOP
+                      11             
+0008                  12     DELAY1S:
+0008 7B05             13             MOV R3, #5
+000A                  14     S1BACK:
+000A 110F             15             CALL DELAY200ms
+000C DBFC             16             DJNZ R3, S1BACK
+000E 22               17             RET
+                      18     
+000F                  19     DELAY200ms:
+000F 7AC8             20             MOV R2, #200
+0011                  21     LAP2:
+0011 79C8             22             MOV R1, #200
+0013                  23     LAP1:
+0013 00               24             NOP
+0014 00               25             NOP
+0015 00               26             NOP
+0016 D9FB             27             DJNZ R1, LAP1
+0018 DAF7             28             DJNZ R2, LAP2
+001A 22               29             RET
+                      30             
+                      31     END
+                             
+                                             
+                                     
+A51 MACRO ASSEMBLER  MAIN                                                                 11/08/2025 16:52:15 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BEGIN_ENTRY. . . .  C ADDR   0000H   A   
+DELAY1S. . . . . .  C ADDR   0008H   A   
+DELAY200MS . . . .  C ADDR   000FH   A   
+LAP1 . . . . . . .  C ADDR   0013H   A   
+LAP2 . . . . . . .  C ADDR   0011H   A   
+MAIN_LOOP. . . . .  C ADDR   0002H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+S1BACK . . . . . .  C ADDR   000AH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

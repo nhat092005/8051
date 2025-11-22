@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\CT_TAT_DAN" 
+PRINT(".\Listings\CT_TAT_DAN.m51") RAMSIZE(256) 

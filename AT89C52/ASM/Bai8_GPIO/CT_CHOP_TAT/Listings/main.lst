@@ -1,0 +1,54 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 11/10/2025 15:13:33 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\main.obj
+ASSEMBLER INVOKED BY: C:\Users\minhn\AppData\Local\Keil_v5\C51\BIN\A51.EXE main.asc SET(SMALL) DEBUG PRINT(.\Listings\ma
+                      in.lst) OBJECT(.\Objects\main.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+                       2     
+0000                   3     BEGIN_ENTRY:
+0000 7455              4             MOV A, #01010101B
+                       5             
+0002                   6     LOOP:
+0002 F5A0              7             MOV P2, A
+0004 F4                8             CPL A
+0005 1109              9             CALL DELAY200ms
+0007 80F9             10             JMP LOOP
+                      11             
+0009                  12     DELAY200ms:
+0009 7AC8             13             MOV R2, #200
+000B                  14     LAP2:
+000B 79C8             15             MOV R1, #200
+000D                  16     LAP1:
+000D 00               17             NOP
+000E 00               18             NOP
+000F 00               19             NOP
+0010 D9FB             20             DJNZ R1, LAP1
+0012 DAF7             21             DJNZ R2, LAP2
+0014 22               22             RET
+                      23             
+                      24     END
+A51 MACRO ASSEMBLER  MAIN                                                                 11/10/2025 15:13:33 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BEGIN_ENTRY. . . .  C ADDR   0000H   A   
+DELAY200MS . . . .  C ADDR   0009H   A   
+LAP1 . . . . . . .  C ADDR   000DH   A   
+LAP2 . . . . . . .  C ADDR   000BH   A   
+LOOP . . . . . . .  C ADDR   0002H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

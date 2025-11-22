@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\CT_SANG_DON" 
+PRINT(".\Listings\CT_SANG_DON.m51") RAMSIZE(256) 

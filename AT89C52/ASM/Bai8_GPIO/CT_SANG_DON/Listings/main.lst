@@ -1,0 +1,105 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 11/10/2025 15:51:44 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\main.obj
+ASSEMBLER INVOKED BY: C:\Users\minhn\AppData\Local\Keil_v5\C51\BIN\A51.EXE main.asc SET(SMALL) DEBUG PRINT(.\Listings\ma
+                      in.lst) OBJECT(.\Objects\main.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+                       2     
+0000                   3     BEGIN_ENTRY:
+0000 7800              4             MOV R0, #00H
+                       5         
+0002                   6     LOOP_PATTERN:
+0002 E8                7             MOV A, R0
+0003 90001F            8       MOV DPTR, #PATTERN_TABLE
+0006 93                9       MOVC A, @A+DPTR
+                      10         
+0007 F5A0             11       MOV P2, A
+0009 1113             12       CALL DELAY200ms
+                      13         
+000B 08               14       INC R0
+000C B826F3           15       CJNE R0, #38, LOOP_PATTERN  
+                      16         
+000F 7800             17       MOV R0, #00H
+0011 80EF             18       JMP LOOP_PATTERN
+                      19         
+0013                  20     DELAY200ms:
+0013 7AC8             21             MOV R2, #200
+0015                  22     LAP2:
+0015 79C8             23             MOV R1, #200
+0017                  24     LAP1:
+0017 00               25             NOP
+0018 00               26             NOP
+0019 00               27             NOP
+001A D9FB             28             DJNZ R1, LAP1
+001C DAF7             29             DJNZ R2, LAP2
+001E 22               30             RET
+                      31     
+001F                  32     PATTERN_TABLE:
+001F FF               33             DB 11111111B  ; 0
+0020 7F               34             DB 01111111B  ; 1
+0021 BF               35             DB 10111111B  ; 2
+0022 DF               36       DB 11011111B  ; 3
+0023 EF               37       DB 11101111B  ; 4
+0024 F7               38       DB 11110111B  ; 5
+0025 FB               39       DB 11111011B  ; 6
+0026 FD               40       DB 11111101B  ; 7
+0027 FE               41       DB 11111110B  ; 8
+0028 7E               42       DB 01111110B  ; 9
+0029 BE               43       DB 10111110B  ; 10
+002A DE               44       DB 11011110B  ; 11
+002B EE               45       DB 11101110B  ; 12
+002C F6               46       DB 11110110B  ; 13
+002D FA               47       DB 11111010B  ; 14
+002E FC               48       DB 11111100B  ; 15
+002F 7C               49       DB 01111100B  ; 16
+0030 BC               50       DB 10111100B  ; 17
+0031 DC               51       DB 11011100B  ; 18
+0032 EC               52       DB 11101100B  ; 19
+0033 F4               53       DB 11110100B  ; 20
+0034 F8               54       DB 11111000B  ; 21
+0035 78               55       DB 01111000B  ; 22
+0036 B8               56       DB 10111000B  ; 23
+0037 D8               57       DB 11011000B  ; 24
+A51 MACRO ASSEMBLER  MAIN                                                                 11/10/2025 15:51:44 PAGE     2
+
+0038 E8               58       DB 11101000B  ; 25
+0039 F0               59       DB 11110000B  ; 26
+003A 70               60       DB 01110000B  ; 27
+003B B0               61       DB 10110000B  ; 28
+003C D0               62       DB 11010000B  ; 29
+003D E0               63       DB 11100000B  ; 30
+003E 60               64       DB 01100000B  ; 31
+003F A0               65       DB 10100000B  ; 32
+0040 C0               66       DB 11000000B  ; 33
+0041 40               67       DB 01000000B  ; 34
+0042 80               68       DB 10000000B  ; 35
+0043 00               69       DB 00000000B  ; 36
+0044 FF               70       DB 11111111B  ; 37
+                      71     
+                      72     END
+A51 MACRO ASSEMBLER  MAIN                                                                 11/10/2025 15:51:44 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BEGIN_ENTRY. . . .  C ADDR   0000H   A   
+DELAY200MS . . . .  C ADDR   0013H   A   
+LAP1 . . . . . . .  C ADDR   0017H   A   
+LAP2 . . . . . . .  C ADDR   0015H   A   
+LOOP_PATTERN . . .  C ADDR   0002H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+PATTERN_TABLE. . .  C ADDR   001FH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
