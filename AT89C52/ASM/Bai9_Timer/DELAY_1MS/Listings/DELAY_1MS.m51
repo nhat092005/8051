@@ -1,0 +1,59 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    11/13/2025  13:13:17  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\USERS\MINHN\APPDATA\LOCAL\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\DELAY_1MS PRINT (.\Listings\DELAY_
+>> 1MS.m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+
+
+LINK MAP OF MODULE:  .\Objects\DELAY_1MS (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0017H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\DELAY_1MS (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0004H         SYMBOL        DELAY_1MS
+  C:0000H         SYMBOL        LOOP
+  C:0000H         SYMBOL        MAIN
+  B:0088H.5       SYMBOL        TF0
+  D:008CH         SYMBOL        TH0
+  D:008AH         SYMBOL        TL0
+  D:0089H         SYMBOL        TMOD
+  B:0088H.4       SYMBOL        TR0
+  C:000FH         SYMBOL        WAIT
+  C:0000H         LINE#         6
+  C:0002H         LINE#         7
+  C:0004H         LINE#         10
+  C:0007H         LINE#         11
+  C:000AH         LINE#         12
+  C:000DH         LINE#         13
+  C:000FH         LINE#         15
+  C:0012H         LINE#         16
+  C:0014H         LINE#         17
+  C:0016H         LINE#         18
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0017H BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=23
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

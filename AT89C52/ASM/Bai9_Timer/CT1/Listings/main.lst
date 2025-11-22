@@ -1,0 +1,67 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 11/13/2025 11:04:29 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\main.obj
+ASSEMBLER INVOKED BY: C:\Users\minhn\AppData\Local\Keil_v5\C51\BIN\A51.EXE main.asc SET(SMALL) DEBUG PRINT(.\Listings\ma
+                      in.lst) OBJECT(.\Objects\main.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+                       2     
+0000                   3     MAIN:
+0000 D2A5              4             SETB P2.5 ; OFF LED
+                       5     
+0002                   6     LOOP:
+0002 B2A5              7             CPL P2.5
+0004 1108              8             CALL DELAY_1S
+0006 80FA              9             SJMP LOOP
+                      10     
+0008                  11     DELAY_1S:
+0008 7F64             12             MOV R7, #100
+                      13             
+000A                  14     DELAY_LOOP:
+000A 110F             15             CALL DELAY_10MS
+000C DFFC             16             DJNZ R7, DELAY_LOOP
+000E 22               17             RET
+                      18             
+000F                  19     DELAY_10MS:
+000F 758901           20             MOV TMOD, #01H
+0012 758CD8           21             MOV TH0, #0D8H
+0015 758AF0           22             MOV TL0, #0F0H
+0018 D28C             23             SETB TR0
+                      24     
+001A                  25     WAIT:
+001A 308DFD           26             JNB TF0, WAIT
+001D C28C             27             CLR TR0
+001F C28D             28             CLR TF0
+0021 22               29             RET
+                      30     
+                      31     END
+A51 MACRO ASSEMBLER  MAIN                                                                 11/13/2025 11:04:29 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY_10MS . . . .  C ADDR   000FH   A   
+DELAY_1S . . . . .  C ADDR   0008H   A   
+DELAY_LOOP . . . .  C ADDR   000AH   A   
+LOOP . . . . . . .  C ADDR   0002H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+WAIT . . . . . . .  C ADDR   001AH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
