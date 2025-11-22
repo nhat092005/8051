@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\CT4" 
+PRINT(".\Listings\CT4.m51") RAMSIZE(256) 

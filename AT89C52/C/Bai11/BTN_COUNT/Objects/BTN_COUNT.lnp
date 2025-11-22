@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\BTN_COUNT" 
+PRINT(".\Listings\BTN_COUNT.m51") RAMSIZE(256) 
