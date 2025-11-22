@@ -1,0 +1,55 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 11/18/2025 18:54:17 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\main.obj
+ASSEMBLER INVOKED BY: C:\Users\minhn\AppData\Local\Keil_v5\C51\BIN\A51.EXE main.asc SET(SMALL) DEBUG PRINT(.\Listings\ma
+                      in.lst) OBJECT(.\Objects\main.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 8003              2             JMP MAIN
+                       3             
+0003                   4     ORG 0003H
+0003 800F              5             JMP BTN_INC
+                       6     
+0005                   7     MAIN:
+0005 D288              8             SETB IT0
+0007 D2A8              9             SETB EX0
+0009 D2AF             10             SETB EA
+                      11             
+000B 75A000           12             MOV P2, #0
+000E 7F00             13             MOV R7, #0
+                      14     
+0010                  15     LOOP:
+0010 8FA0             16             MOV P2, R7
+0012 80FC             17             JMP LOOP
+                      18             
+0014                  19     BTN_INC:
+0014 0F               20             INC R7
+0015 32               21             RETI
+                      22             
+                      23     END
+                                     
+A51 MACRO ASSEMBLER  MAIN                                                                 11/18/2025 18:54:17 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BTN_INC. . . . . .  C ADDR   0014H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+IT0. . . . . . . .  B ADDR   0088H.0 A   
+LOOP . . . . . . .  C ADDR   0010H   A   
+MAIN . . . . . . .  C ADDR   0005H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

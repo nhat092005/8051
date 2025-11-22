@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\BTN_INC" 
+PRINT(".\Listings\BTN_INC.m51") RAMSIZE(256) 

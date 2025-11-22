@@ -1,0 +1,53 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 11/18/2025 11:28:00 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\main.obj
+ASSEMBLER INVOKED BY: C:\Users\minhn\AppData\Local\Keil_v5\C51\BIN\A51.EXE main.asc SET(SMALL) DEBUG PRINT(.\Listings\ma
+                      in.lst) OBJECT(.\Objects\main.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 802E              2             JMP MAIN
+                       3             
+0003                   4     ORG 0003H
+0003 8035              5             JMP INT0_ISR
+                       6     
+0030                   7     ORG 0030H
+0030                   8     MAIN:
+0030 D288              9             SETB IT0
+0032 D2A8             10             SETB EX0
+0034 D2AF             11             SETB EA
+                      12             
+0036 D2A7             13             SETB P2.7
+                      14             
+0038                  15     LOOP:
+0038 80FE             16             JMP LOOP
+                      17             
+003A                  18     INT0_ISR:
+003A B2A7             19             CPL P2.7
+003C 32               20             RETI
+                      21             
+                      22     END
+A51 MACRO ASSEMBLER  MAIN                                                                 11/18/2025 11:28:00 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+INT0_ISR . . . . .  C ADDR   003AH   A   
+IT0. . . . . . . .  B ADDR   0088H.0 A   
+LOOP . . . . . . .  C ADDR   0038H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

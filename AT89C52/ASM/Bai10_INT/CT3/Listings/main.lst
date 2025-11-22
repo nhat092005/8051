@@ -1,0 +1,85 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 11/18/2025 16:42:08 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\main.obj
+ASSEMBLER INVOKED BY: C:\Users\minhn\AppData\Local\Keil_v5\C51\BIN\A51.EXE main.asc SET(SMALL) DEBUG PRINT(.\Listings\ma
+                      in.lst) OBJECT(.\Objects\main.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 802E              2             JMP MAIN
+                       3     
+001B                   4     ORG 001BH
+001B 8028              5             JMP TIMER1_ISR
+                       6             
+0030                   7     ORG 0030H
+0030                   8     MAIN:
+0030 758920            9             MOV TMOD, #20H
+                      10             
+0033 758B9C           11             MOV TL1, #156
+0036 758D9C           12             MOV TH1, #156
+                      13             
+0039 7A14             14             MOV R2, #20
+                      15             
+003B D2AB             16             SETB ET1
+003D D2AF             17             SETB EA
+                      18             
+003F D2A0             19             SETB P2.0
+                      20             
+0041 D28E             21             SETB TR1
+                      22             
+0043                  23     LOOP:
+0043 80FE             24             JMP LOOP
+                      25             
+0045                  26     TIMER1_ISR:
+0045 09               27             INC R1
+0046 C3               28             CLR C
+0047 E9               29             MOV A, R1
+0048 9A               30             SUBB A,R2
+0049 4004             31             JC PWM_HIGH
+                      32             
+                      33             ; R1 >= R2
+004B C2A0             34             CLR P2.0
+004D 8002             35             JMP CHECK_CYCLE_END
+                      36     
+004F                  37     PWM_HIGH:
+004F D2A0             38             SETB P2.0
+                      39     
+0051                  40     CHECK_CYCLE_END:
+0051 B96404           41             CJNE R1, #100, EXIT_ISR
+0054 7900             42             MOV R1, #0
+0056 D2A0             43             SETB P2.0
+                      44             
+0058                  45     EXIT_ISR:
+0058 32               46             RETI
+                      47             
+                      48     END
+A51 MACRO ASSEMBLER  MAIN                                                                 11/18/2025 16:42:08 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CHECK_CYCLE_END. .  C ADDR   0051H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET1. . . . . . . .  B ADDR   00A8H.3 A   
+EXIT_ISR . . . . .  C ADDR   0058H   A   
+LOOP . . . . . . .  C ADDR   0043H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+PWM_HIGH . . . . .  C ADDR   004FH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TIMER1_ISR . . . .  C ADDR   0045H   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\TOOGLE_LED_3S" 
+PRINT(".\Listings\TOOGLE_LED_3S.m51") RAMSIZE(256) 
